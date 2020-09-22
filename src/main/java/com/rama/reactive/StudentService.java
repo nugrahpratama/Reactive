@@ -42,8 +42,8 @@ public class StudentService {
         if (Objects.isNull(dbStudent)) {
             return Mono.empty();
         }
-        return getById(id).switchIfEmpty(Mono.empty()).filter(Objects::nonNull).flatMap(studentToBeDeleted -> studentRepo
-                .delete(studentToBeDeleted).then(Mono.just(studentToBeDeleted)));
+        return getById(id)
+                .flatMap(student -> studentRepo.delete(student));
     }
 
 }

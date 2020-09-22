@@ -24,7 +24,7 @@ dependencies {
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	compileOnly 'io.springfox:springfox-swagger-ui:3.0.0'
+	compileOnly 'io.springfox:springfox-swagger-ui:2.0.2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
