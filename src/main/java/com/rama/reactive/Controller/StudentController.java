@@ -1,7 +1,7 @@
 package com.rama.reactive.Controller;
 
-import com.rama.reactive.Student;
-import com.rama.reactive.StudentService;
+import com.rama.reactive.Model.Student;
+import com.rama.reactive.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;

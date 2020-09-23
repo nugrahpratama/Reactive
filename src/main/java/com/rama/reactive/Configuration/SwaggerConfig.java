@@ -1,4 +1,4 @@
-package com.rama.reactive;
+package com.rama.reactive.Configuration;
 
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
