@@ -26,6 +26,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	compileOnly 'io.springfox:springfox-swagger-ui:2.0.2'
 	compileOnly 'org.springframework.kafka:spring-kafka:2.6.1'
+	compileOnly 'com.fasterxml.jackson.core:jackson-databind:2.10.0.pr2'
+	compileOnly 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

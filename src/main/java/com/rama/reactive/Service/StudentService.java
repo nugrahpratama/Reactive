@@ -2,6 +2,8 @@ package com.rama.reactive.Service;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class StudentService {
 
+    private static ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
     private StudentRepo studentRepo;
@@ -37,8 +40,13 @@ public class StudentService {
         return studentRepo.save(student);
     }
 
-    public Mono save(final Student student) {
-        return studentRepo.save(student);
+    public Mono<Student> save(final Student student)  {
+        try {
+            kafkaTemplate.send("getAllStudent", mapper.writeValueAsString(student));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return Mono.just(student);
     }
 
     public Mono delete(final String id) {
